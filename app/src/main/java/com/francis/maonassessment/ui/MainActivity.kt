@@ -1,7 +1,8 @@
-package com.francis.maonassessment
+package com.francis.maonassessment.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.francis.maonassessment.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
