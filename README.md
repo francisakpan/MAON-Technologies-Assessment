@@ -25,7 +25,7 @@ Libraries Used
 --------------
 * [Architecture][10] - Jetpack architechure libraries. A collection of libraries  for managing app component lifecycles.
 * [Android KTX][2] - Concise Kotlin code with less verbosity
-* [Lifecycles][12] - Monitor lifecycle events and update UI accordingly
+* [Lifecycles][12] - Monitor lifecycle events and update UI accordingly.
 
 
 [0]: https://developer.android.com/jetpack/components
@@ -33,5 +33,3 @@ Libraries Used
 [4]: https://developer.android.com/training/testing/
 [10]: https://developer.android.com/jetpack/arch/
 [12]: https://developer.android.com/topic/libraries/architecture/lifecycle
-
-## Documentation
