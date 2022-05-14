@@ -12,4 +12,7 @@
     <string name="club_details_text">Club Details</string>
     <string name="club_logo_content_description">Club Logo</string>
     <string name="team_logo_content_description">Team logo</string>
+    <string name="start_date">Start date: %s</string>
+    <string name="start_date_span">Start date:</string>
+    <string name="no_item_to_display">No item to display</string>
 </resources>

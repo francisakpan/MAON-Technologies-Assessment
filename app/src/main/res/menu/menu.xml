@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="none">
+        <item android:id="@+id/free"
+            android:title="FREE" />
+        <item android:id="@+id/basic"
+            android:title="BASIC"/>
+        <item android:id="@+id/standard"
+            android:title="STANDARD"/>
+        <item android:id="@+id/advanced"
+            android:title="ADVANCED"/>
+    </group>
+</menu>

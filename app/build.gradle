@@ -2,6 +2,9 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
+    id 'kotlin-parcelize'
+    id 'androidx.navigation.safeargs.kotlin'
+    id 'dagger.hilt.android.plugin'
 }
 
 android {
@@ -13,7 +16,8 @@ android {
         targetSdk 32
         versionCode 1
         versionName "1.0"
-
+        buildConfigField "String", "BASE_URL", "\"https://api.football-data.org\""
+        buildConfigField "String", "TOKEN", "\"761b82a58330402b9f0dd03f3b3a76ad\""
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -32,6 +36,7 @@ android {
     }
     buildFeatures {
         viewBinding true
+        dataBinding true
     }
 }
 
@@ -85,12 +90,24 @@ dependencies {
     //gson
     implementation 'com.google.code.gson:gson:2.8.6'
 
+    //Coil for image loading
+    implementation "io.coil-kt:coil:2.0.0"
+    implementation "io.coil-kt:coil-svg:2.0.0"
 
     // Coroutines
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0"
     testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.0"
 
+    //Shimmer
+    implementation 'com.facebook.shimmer:shimmer:0.5.0'
+
+    //hilt
+    //hilt
+    implementation "com.google.dagger:hilt-android:2.41"
+    kapt "com.google.dagger:hilt-compiler:2.41"
+
     //PowerMock
+    testImplementation "androidx.arch.core:core-testing:2.1.0"
     testImplementation "org.powermock:powermock-module-junit4:2.0.4"
     testImplementation "org.powermock:powermock-module-junit4-rule:2.0.4"
     testImplementation "org.powermock:powermock-api-mockito2:2.0.4"

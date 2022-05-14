@@ -1,14 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="100dp"
-    android:layout_margin="16dp">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <ImageView
-        android:id="@+id/team_logo"
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.francis.maonassessment.ui.TeamsViewModel" />
+
+        <variable
+            name="teamData"
+            type="com.francis.maonassessment.data.model.table.TeamEntity" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="fitCenter"
-        android:contentDescription="@string/team_logo_content_description" />
+        android:layout_height="100dp"
+        android:layout_margin="16dp"
+        android:clickable="true"
+        android:onClick="@{ () -> viewModel.navigate(teamData)}"
+        android:focusable="true">
 
-</androidx.cardview.widget.CardView>
+        <ImageView
+            android:id="@+id/team_logo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/team_logo_content_description"
+            android:scaleType="fitCenter"
+            app:imageUrl="@{teamData}" />
+
+    </androidx.cardview.widget.CardView>
+</layout>
