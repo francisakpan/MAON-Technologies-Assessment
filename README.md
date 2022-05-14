@@ -16,9 +16,9 @@ This project was developed using Android Studio Bumblebee so make sure your IDE 
 Screenshots
 -----------
 
-<img src="/screenshots/screenshot-one.png" width="150" height="280" />
-<img src="/screenshots/screenshot-two.png" width="150" height="280" />
-<img src="/screenshots/screenshot-three.png" width="150" height="280" />
+<img src="/screenshots/screenshot-one.png" width="200" height="320" /> 
+<img src="/screenshots/screenshot-two.png" width="200" height="320" /> 
+<img src="/screenshots/screenshot-three.png" width="200" height="320" />
 
 
 Libraries Used
