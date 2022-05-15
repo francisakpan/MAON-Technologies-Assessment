@@ -1,4 +1,4 @@
-# MAON TECHNOLOGY ASSESSMENT
+# MAON TECHNOLOGIES ASSESSMENT
 
 A simple 3 screens android Application.  
 Get sport data from https://www.football-data.org/, persist locally some part of it, and display data on screen.
@@ -24,9 +24,9 @@ Screenshots
      <td>Team Details Screen</td>
   </tr>
   <tr>
-    <td><img src="/screenshots/screenshot-one.png" width=270 height=480></td>
-    <td><img src="/screenshots/screenshot-two.png" width=270 height=480></td>
-    <td><img src="/screenshots/screenshot-three.png" width=270 height=480></td>
+    <td><img src="/screenshots/screenshot-one.png" width=240 height=420></td>
+    <td><img src="/screenshots/screenshot-two.png" width=240 height=420></td>
+    <td><img src="/screenshots/screenshot-three.png" width=240 height=420></td>
   </tr>
  </table>
 
