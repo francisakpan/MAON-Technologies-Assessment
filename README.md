@@ -16,9 +16,19 @@ This project was developed using Android Studio Bumblebee so make sure your IDE 
 Screenshots
 -----------
 
-<img src="/screenshots/screenshot-one.png" width="200" height="320" /> 
-<img src="/screenshots/screenshot-two.png" width="200" height="320" /> 
-<img src="/screenshots/screenshot-three.png" width="200" height="320" />
+
+<table>
+  <tr>
+    <td>Competition Screen</td>
+     <td>Teams Screen</td>
+     <td>Team Details Screen</td>
+  </tr>
+  <tr>
+    <td><img src="/screenshots/screenshot-one.png" width=270 height=480></td>
+    <td><img src="/screenshots/screenshot-two.png" width=270 height=480></td>
+    <td><img src="screenshots/screenshot_three.png" width=270 height=480></td>
+  </tr>
+ </table>
 
 
 Libraries Used
