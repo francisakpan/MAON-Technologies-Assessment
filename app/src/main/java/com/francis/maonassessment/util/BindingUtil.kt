@@ -22,6 +22,7 @@ import java.util.*
 
 @BindingAdapter("imageUrl")
 fun ImageView.loadImage(team: TeamEntity?) {
+    // Use Coil image Library to load network images to the imageview
     val imageLoader = ImageLoader.Builder(this.context)
         .components {
             add(SvgDecoder.Factory())
@@ -41,6 +42,8 @@ fun ImageView.loadImage(team: TeamEntity?) {
 @BindingAdapter("initials")
 fun TextView.setInitials(player: PlayerEntity?) {
     val arr = player?.name?.split(" ")?.toTypedArray()
+    
+    // Pick the first characters of the first and last name as initials
     val initials = arr?.foldIndexed(StringBuilder()) { index, prev, element ->
         prev.append(
             if (index == 0 || index == arr.size - 1) element[0]
@@ -87,6 +90,7 @@ fun TextView.setDob(player: PlayerEntity?) {
 fun RecyclerView.displayColors(team: TeamEntity?) {
     team ?: return
     try {
+        //Since club colors come as a string. Using the delimeter split colors into an array of strings
         val colors = team.clubColors?.split("/")?.map { it.trim().lowercase() } ?: return
         adapter = ItemColorAdapter(ArrayList(colors))
     } catch (e: Exception) {
