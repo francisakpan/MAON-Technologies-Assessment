@@ -32,6 +32,10 @@ class CompetitionFragmentViewModel @Inject constructor(
     val navEvent: LiveData<Event<*>>
         get() = _navEvent
 
+    init {
+        fetchCompetitions()
+    }
+
     fun navigate(competition: CompetitionEntity) {
         _navEvent.value = Event(competition)
     }
