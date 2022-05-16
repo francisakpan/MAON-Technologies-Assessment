@@ -17,6 +17,8 @@ import com.francis.maonassessment.data.type.Plan
 import com.francis.maonassessment.datasource.local.AppDatabase
 import com.francis.maonassessment.datasource.remote.ApiClient
 import com.francis.maonassessment.util.State
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import kotlinx.coroutines.Dispatchers
 import javax.inject.Inject
 
@@ -25,8 +27,9 @@ import javax.inject.Inject
  * Data store. Handles data retrieval and storage.
  */
 open class Repository @Inject constructor(
+    private val gson: Gson,
+    private val db: AppDatabase,
     private val client: ApiClient,
-    private val db: AppDatabase
 ){
 
     /**Get competitions synchronously **/
@@ -99,7 +102,13 @@ open class Repository @Inject constructor(
                 if (response.isSuccessful && response.body() != null) {
                     processTeamsResponse(id, response.body())
                     State.Success
-                } else State.Error(Exception(response.message()))
+                } else {
+                    val res = response.errorBody()?.string()
+                    val  error: ErrorBody = gson.fromJson(res, object : TypeToken<ErrorBody>() {}.type)
+                    val errorMessage = if (error.errorCode == 403) "API restriction. Please update your plan."
+                    else error.message
+                    State.Error(Exception(errorMessage))
+                }
             }
         } catch (e: Exception) {
             e.printStackTrace()
@@ -134,7 +143,13 @@ open class Repository @Inject constructor(
                 if (response.isSuccessful && response.body() != null) {
                     processSquadResponse(id, response.body())
                     State.Success
-                } else State.Error(Exception(response.message()))
+                } else {
+                    val res = response.errorBody()?.string()
+                    val  error: ErrorBody = gson.fromJson(res, object : TypeToken<ErrorBody>() {}.type)
+                    val errorMessage = if (error.errorCode == 403) "API restriction. Please update your plan."
+                    else error.message
+                    State.Error(Exception(errorMessage))
+                }
             }
         } catch (e: Exception) {
             e.printStackTrace()
@@ -168,3 +183,8 @@ open class Repository @Inject constructor(
         return SimpleSQLiteQuery(query)
     }
 }
+
+data class ErrorBody(
+    val errorCode: Int? =  null,
+    val message: String = ""
+)
