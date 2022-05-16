@@ -8,6 +8,7 @@ import androidx.paging.liveData
 import androidx.sqlite.db.SimpleSQLiteQuery
 import androidx.sqlite.db.SupportSQLiteQuery
 import com.francis.maonassessment.data.model.response.CompetitionResponse
+import com.francis.maonassessment.data.model.response.ErrorBody
 import com.francis.maonassessment.data.model.response.SquadResponse
 import com.francis.maonassessment.data.model.response.TeamResponse
 import com.francis.maonassessment.data.model.table.CompetitionEntity
@@ -183,8 +184,3 @@ open class Repository @Inject constructor(
         return SimpleSQLiteQuery(query)
     }
 }
-
-data class ErrorBody(
-    val errorCode: Int? =  null,
-    val message: String = ""
-)
