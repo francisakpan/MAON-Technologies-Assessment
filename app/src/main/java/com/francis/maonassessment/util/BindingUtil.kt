@@ -1,12 +1,15 @@
 package com.francis.maonassessment.util
 
+import android.graphics.Color
 import android.graphics.Typeface
 import android.text.SpannableString
 import android.text.Spanned
 import android.text.style.StyleSpan
 import android.text.style.URLSpan
+import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.graphics.drawable.DrawableCompat
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.ImageLoader
@@ -53,7 +56,7 @@ fun TextView.setInitials(player: PlayerEntity?) {
     text = initials
 }
 
-@BindingAdapter("startDate")
+@BindingAdapter("date")
 fun TextView.setStartDate(competition: CompetitionEntity) {
     val startDate = context.getString(
         R.string.start_date,
@@ -96,4 +99,20 @@ fun RecyclerView.displayColors(team: TeamEntity?) {
     } catch (e: Exception) {
         e.printStackTrace()
     }
+}
+
+@BindingAdapter("color")
+fun FrameLayout.setColor(color: String?) {
+    color ?: return
+
+    val getColor = try {
+        Color.parseColor(color)
+    } catch (e: Exception) {
+        Color.parseColor("white")
+    }
+
+    var bg = background
+    bg = DrawableCompat.wrap(bg)
+    DrawableCompat.setTint(bg, getColor)
+    background = bg
 }
